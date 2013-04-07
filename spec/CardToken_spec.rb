@@ -1,7 +1,7 @@
 require 'hay'
 
 describe Hay::CardToken do
-  it "does the card token url work" do
+  it "create card token" do
     options = {
       'number' => 5520000000000000,
       'expiry_month' => 05,

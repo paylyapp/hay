@@ -1,23 +1,19 @@
 module Hay
   class Customers
-    def self.create(api_key, options)
-      private_resource = RestClient::Resource.new 'https://test-api.pin.net.au/1/customers', api_key
-      private_resource.post options 
+    def self.create(api_key, params = {})
+      Hay.request('post', '/customers', api_key, params)
     end
 
-    def self.list(api_key)
-      private_resource = RestClient::Resource.new 'https://test-api.pin.net.au/1/customers/', api_key
-      private_resource.get
+    def self.list(api_key, params = {})
+      Hay.request('get', '/customers', api_key, params)
     end
 
-    def self.show(api_key, customer_token)
-      private_resource = RestClient::Resource.new 'https://test-api.pin.net.au/1/customers/'+customer_token, api_key
-      private_resource.get
+    def self.show(api_key, customer_token, params = {})
+      Hay.request('get', '/customers/'+customer_token, api_key, params)
     end
 
-    def self.show_charges(api_key, customer_token)
-      private_resource = RestClient::Resource.new 'https://test-api.pin.net.au/1/customers/'+customer_token+'/charges', api_key
-      private_resource.get
+    def self.show_charges(api_key, customer_token, params = {})
+      Hay.request('get', '/customers/'+customer_token+'/charges', api_key, params)
     end
   end
 end

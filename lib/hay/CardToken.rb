@@ -1,8 +1,7 @@
 module Hay
   class CardToken
-    def self.create(api_key, options)
-      private_resource = RestClient::Resource.new 'https://test-api.pin.net.au/1/cards', api_key
-      private_resource.post options 
+    def self.create(api_key, params = {})
+      Hay.request('post', '/cards', api_key, params)
     end
   end
 end
