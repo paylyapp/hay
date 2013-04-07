@@ -26,6 +26,10 @@ describe Hay::Charges do
     Hay::Charges.create('0E7LU4yW34Hj8amyLsxUzQ', options)
   end
 
+  it "list charges" do
+    Hay::Charges.list('0E7LU4yW34Hj8amyLsxUzQ')
+  end
+
   it "show charge" do
     Hay::Charges.show('0E7LU4yW34Hj8amyLsxUzQ', 'ch_VaF08F5DVvvoPImxh9cq9g')
   end
