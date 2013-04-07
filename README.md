@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Hay
 
 TODO: Write a gem description
@@ -28,7 +27,3 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-=======
-hay
-===
->>>>>>> 2aa7b9cd06c2b5a544d0b489fafc49cb7a452550
