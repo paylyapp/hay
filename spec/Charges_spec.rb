@@ -30,6 +30,14 @@ describe Hay::Charges do
     Hay::Charges.list('0E7LU4yW34Hj8amyLsxUzQ')
   end
 
+  it "search for charges" do
+    options = {
+      'query' => 'test+charge'
+    }
+
+    Hay::Charges.search('0E7LU4yW34Hj8amyLsxUzQ', options)
+  end
+
   it "show charge" do
     Hay::Charges.show('0E7LU4yW34Hj8amyLsxUzQ', 'ch_VaF08F5DVvvoPImxh9cq9g')
   end
