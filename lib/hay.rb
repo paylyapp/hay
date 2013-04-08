@@ -77,6 +77,7 @@ module Hay
     rescue MultiJson::DecodeError
       raise APIError.new("Invalid response object from API: #{rbody.inspect} (HTTP response code was #{rcode})", rcode, rbody)
     end
+    resp = Util.symbolize_names(resp)
     resp
   end
 
@@ -94,8 +95,6 @@ module Hay
       raise InvalidRequestError.new(error_obj[:error_description], error_obj[:messages], rcode, rbody, error_obj)
     when 401
       raise AuthenticationError.new(error_obj[:error_description], rcode, rbody, error_obj)
-    when 402
-      raise CardError.new(error[:messages], error[:error], error[:error], rcode, rbody, error_obj)
     else
       raise APIError.new(error_obj[:error_description], rcode, rbody, error_obj)
     end

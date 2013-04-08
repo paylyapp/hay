@@ -27,16 +27,6 @@ module Hay
   class AuthenticationError < HayError
   end
 
-  class CardError < HayError
-    attr_reader :param, :code
-
-    def initialize(message, param, code, http_status=nil, http_body=nil, json_body=nil)
-      super(message, http_status, http_body, json_body)
-      @param = param
-      @code = code
-    end
-  end
-  
   class InvalidRequestError < HayError
     attr_accessor :param
 

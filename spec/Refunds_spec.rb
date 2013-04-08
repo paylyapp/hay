@@ -3,7 +3,7 @@ require 'hay'
 api_key = '0E7LU4yW34Hj8amyLsxUzQ'
 
 describe Hay::Refunds do
-  it "create refund" do
+  it "should be able to refund a valid charge" do
     options = {
       'amount' => 400,
       'currency'=>'AUD',
@@ -25,18 +25,14 @@ describe Hay::Refunds do
       }
     }
     charge = Hay::Charges.create(api_key, options)
-    
-    charge.each do |charge_key, charge_value|
-      case (charge_key)
-      when 'response'
-        charge_value.each do |response_key, response_value|
-          case (response_key)
-          when 'token'
-            Hay::Refunds.create(api_key, response_value)
-          end
-        end  
-      end
-    end
+
+    Hay::Refunds.create(api_key, charge[:response][:token])
+  end
+
+  it "should throw an error on an invalid charge" do
+    lambda {
+      Hay::Refunds.create(api_key, 'invalid_charge')  
+    }.should raise_error(Hay::InvalidRequestError, 'The requested resource could not be found.')
   end
 
   it "show charge" do
