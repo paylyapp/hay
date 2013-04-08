@@ -1,5 +1,7 @@
 require 'hay'
 
+api_key = '0E7LU4yW34Hj8amyLsxUzQ'
+
 describe Hay::Customers do
   it "create customer" do
     options = {
@@ -19,18 +21,18 @@ describe Hay::Customers do
       }
     }
 
-    Hay::Customers.create('0E7LU4yW34Hj8amyLsxUzQ', options)
+    Hay::Customers.create(api_key, options)
   end
 
   it "list customers" do
-    Hay::Customers.list('0E7LU4yW34Hj8amyLsxUzQ')
+    Hay::Customers.list(api_key)
   end
 
   it "show customer" do
-    Hay::Customers.show('0E7LU4yW34Hj8amyLsxUzQ','cus_IS0qzTjW5pj_dkdHL3nvrw')
+    Hay::Customers.show(api_key,'cus_IS0qzTjW5pj_dkdHL3nvrw')
   end
 
   it "show customer charges" do
-    Hay::Customers.show_charges('0E7LU4yW34Hj8amyLsxUzQ','cus_IS0qzTjW5pj_dkdHL3nvrw')
+    Hay::Customers.show_charges(api_key,'cus_IS0qzTjW5pj_dkdHL3nvrw')
   end
 end
