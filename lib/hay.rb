@@ -14,8 +14,31 @@ require "hay/CardToken"
 require "hay/errors"
 
 module Hay
+  @@api_key = nil
+  @@api_base = 'test-api.pin.net.au'
+  @@api_version = '1'
+
+  def self.api_key=(api_key)
+    @@api_key = api_key
+  end
+  def self.api_key
+    @@api_key
+  end
+  def self.api_base=(api_base)
+    @@api_base = api_base
+  end
+  def self.api_base
+    @@api_base
+  end
+  def self.api_version
+    @@api_version
+  end
+
   def self.request(method, uri, api_key, params) 
-    url = 'https://test-api.pin.net.au/1'+uri
+    api_key ||= @@api_key
+    raise AuthenticationError.new('No API key provided.') unless api_key
+
+    url = 'https://' + Hay.api_base + '/' + Hay.api_version + uri
 
     opts = {
       :method => method,

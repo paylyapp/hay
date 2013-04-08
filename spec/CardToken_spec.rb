@@ -1,6 +1,6 @@
 require 'hay'
 
-api_key = '0E7LU4yW34Hj8amyLsxUzQ'
+Hay.api_key = '0E7LU4yW34Hj8amyLsxUzQ'
 
 describe Hay::CardToken do
   it "create card token" do
@@ -18,7 +18,7 @@ describe Hay::CardToken do
       'address_country' => 'Australia'
     }
 
-    Hay::CardToken.create(api_key, options)
+    Hay::CardToken.create(nil, options)
   end
 
   it "should throw an Authenication Error because of no API Key" do
@@ -47,7 +47,7 @@ describe Hay::CardToken do
     options = {}
 
     lambda {
-      Hay::CardToken.create(api_key, options)
+      Hay::CardToken.create(nil, options)
     }.should raise_error(Hay::APIError, "One or more parameters were missing or invalid.")
   end
 end
