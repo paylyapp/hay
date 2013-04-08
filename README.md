@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ### Card Tokens
 #### Create 
-params = {
+`params = {
   'number' => 5520000000000000,
   'expiry_month' => 05,
   'expiry_year' => 2013,
@@ -34,7 +34,7 @@ params = {
   'address_country' => 'Australia'
 }
 
-Hay::CardToken.create(api_key, params)
+Hay::CardToken.create(api_key, params)`
 
 ### Charges
 #### Create
