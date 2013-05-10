@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hay (0.0.1)
+    hay (0.0.2)
       multi_json (>= 1.0.4, < 2)
       rest-client (~> 1.4)
 
@@ -9,7 +9,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.2)
-    mime-types (1.22)
+    mime-types (1.23)
     multi_json (1.7.2)
     rake (10.0.4)
     rest-client (1.6.7)
