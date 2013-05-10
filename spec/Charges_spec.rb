@@ -1,6 +1,6 @@
 require 'hay'
 
-api_key = '0E7LU4yW34Hj8amyLsxUzQ'
+Hay.api_key = '0E7LU4yW34Hj8amyLsxUzQ'
 
 describe Hay::Charges do
   it "create charge" do
@@ -25,11 +25,11 @@ describe Hay::Charges do
       }
     }
 
-    Hay::Charges.create(api_key, options)
+    Hay::Charges.create('0E7LU4yW34Hj8amyLsxUzQ', options)
   end
 
   it "list charges" do
-    Hay::Charges.list(api_key)
+    Hay::Charges.list('0E7LU4yW34Hj8amyLsxUzQ')
   end
 
   it "search for charges" do
@@ -37,10 +37,10 @@ describe Hay::Charges do
       'query' => 'test+charge'
     }
 
-    Hay::Charges.search(api_key, options)
+    Hay::Charges.search('0E7LU4yW34Hj8amyLsxUzQ', options)
   end
 
   it "show charge" do
-    Hay::Charges.show(api_key, 'ch_VaF08F5DVvvoPImxh9cq9g')
+    Hay::Charges.show('0E7LU4yW34Hj8amyLsxUzQ', 'ch_VaF08F5DVvvoPImxh9cq9g')
   end
 end

@@ -1,6 +1,6 @@
 require 'hay'
 
-api_key = '0E7LU4yW34Hj8amyLsxUzQ'
+Hay.api_key = '0E7LU4yW34Hj8amyLsxUzQ'
 
 describe Hay::Refunds do
   it "should be able to refund a valid charge" do
@@ -24,18 +24,18 @@ describe Hay::Refunds do
         'address_country' => 'Australia'
       }
     }
-    charge = Hay::Charges.create(api_key, options)
+    charge = Hay::Charges.create(nil, options)
 
-    Hay::Refunds.create(api_key, charge[:response][:token])
+    Hay::Refunds.create(nil, charge[:response][:token])
   end
 
   it "should throw an error on an invalid charge" do
     lambda {
-      Hay::Refunds.create(api_key, 'invalid_charge')  
+      Hay::Refunds.create(nil, 'invalid_charge')  
     }.should raise_error(Hay::InvalidRequestError, 'The requested resource could not be found.')
   end
 
   it "show charge" do
-    Hay::Refunds.list(api_key, 'ch_VaF08F5DVvvoPImxh9cq9g')
+    Hay::Refunds.list(nil, 'ch_VaF08F5DVvvoPImxh9cq9g')
   end
 end
