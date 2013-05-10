@@ -11,12 +11,12 @@ describe Hay::Customers do
         'expiry_month' => 05,
         'expiry_year' => 2013,
         'cvc' => 123,
-        'name' => 'Roland Robot',
-        'address_line1' => '42 Sevenoaks St',
+        'name' => 'Tim gleeson',
+        'address_line1' => '7 Braeside Crescent',
         'address_line2' => '',
-        'address_city' => 'Lathlain',
-        'address_postcode' => 6454,
-        'address_state' => 'WA',
+        'address_city' => 'Campbelltown',
+        'address_postcode' => 2560,
+        'address_state' => 'NSW',
         'address_country' => 'Australia'
       }
     }

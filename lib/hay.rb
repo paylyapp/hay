@@ -34,7 +34,7 @@ module Hay
     @@api_version
   end
 
-  def self.request(method, uri, api_key, params) 
+  def self.request(method, uri, params, api_key) 
     api_key ||= @@api_key
     raise AuthenticationError.new('No API key provided.') unless api_key
 

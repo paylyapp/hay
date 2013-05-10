@@ -18,7 +18,7 @@ describe Hay::CardToken do
       'address_country' => 'Australia'
     }
 
-    Hay::CardToken.create(nil, options)
+    card_token = Hay::CardToken.create(nil, options)
   end
 
   it "should throw API Error if incorrect Card Number is given" do
